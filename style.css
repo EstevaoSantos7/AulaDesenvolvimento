@@ -6,6 +6,7 @@
     --azulClaro: rgb(4, 157, 233);
     --ciano: rgb(75, 222, 255);
     --cianoCC: rgb(230, 241, 245);
+    --cianoCCC: rgb(246, 251, 255);
     --cinza: #9e9e9e;
     --branco: #fff;
     --radiusPadrao: 5px;
@@ -141,29 +142,77 @@ header nav a:hover {
 }
 
 .containerGaleria .containerProdutos {
-    border: 1px solid blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     width: 80%;
 }
 
 .containerGaleria .containerProdutos .produto {
     /* padding: 1rem; */
-    border: var(--borderPadrao);
+    border-radius: 1rem;
+    background-color: var(--cianoCCC);
     width: 30%;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+    transition: box-shadow .5s ease, transform .5s ease;
+}
+
+.containerGaleria .containerProdutos .produto:hover {
+    box-shadow: 0 25px 25px rgba(0, 0, 0, .3);
+    transform: scale(1.02);
 }
 
 .containerGaleria .containerProdutos .produto .quadroImg {
     width: 100%;
-    aspect-ratio:16 / 9;
+    aspect-ratio: 2 / 1;
     display: block;
-     overflow: hidden; /*Serve para esconder tudo o que ultapassa as extremidades do pai */
+    overflow: hidden;
+    /*Serve para esconder tudo o que ultapassa as extremidades do pai */
 }
 
 .containerGaleria .containerProdutos .produto .quadroImg img {
     width: 100%;
     height: 100%;
-object-fit:  cover   ;
+    object-fit: cover;
 }
 
+.containerGaleria .containerProdutos .produto .textos {
+    padding: 1.5rem;
+}
+
+.containerGaleria .containerProdutos .produto .textos .nomeProduto {
+    color: var(--azulMarinho);
+}
+
+.containerGaleria .containerProdutos .produto .textos .marcaProduto {
+    color: var(--azulNeon);
+}
+
+.containerGaleria .produto .preco::before {
+    content: 'R$ ';
+}
+
+.containerGaleria .produto .fileiraBotoes .botaoComprar {
+    text-decoration: none;
+    padding: .5rem;
+    border: solid 1px;
+    border-radius: 5px;
+    color: var(--azulClaro);
+    transition: background-color .5s ease-in-out, color .5s;
+}
+
+.containerGaleria .produto .fileiraBotoes .botaoComprar:hover {
+    background-color: var(--azulMarinho);
+    color: var(--branco);
+}
+
+.containerGaleria .containerProdutos .produto .fileiraBotoes {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
 
 @media screen and (max-width:1200px) {
     .containerGaleria {
