@@ -141,18 +141,17 @@ header nav a:hover {
     color: var(--ciano);
 }
 
+
 .containerGaleria .containerProdutos {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
     width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
 }
 
 .containerGaleria .containerProdutos .produto {
-    /* padding: 1rem; */
     border-radius: 1rem;
     background-color: var(--cianoCCC);
-    width: 30%;
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, .2);
@@ -166,7 +165,7 @@ header nav a:hover {
 
 .containerGaleria .containerProdutos .produto .quadroImg {
     width: 100%;
-    aspect-ratio: 2 / 1;
+    aspect-ratio: 16 / 9;
     display: block;
     overflow: hidden;
     /*Serve para esconder tudo o que ultapassa as extremidades do pai */
@@ -300,4 +299,14 @@ header nav a:hover {
         height: 30rem;
     }
 
+    .containerGaleria .containerProdutos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media screen and (max-width:550px) {
+    .containerGaleria .containerProdutos {
+        grid-template-columns: 1fr;
+    }
 }
